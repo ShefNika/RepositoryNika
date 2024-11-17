@@ -11,10 +11,7 @@ def task() -> None:
     with open(INPUT_FILENAME, 'r') as input_file:
         with open(OUTPUT_FILENAME, 'w') as output_file:
             reader = csv.DictReader(input_file, delimiter=',', quotechar='"')
-            list_dict=[]
-            for row in reader:
-                list_dict.append(row)
-            json.dump(list_dict, output_file, indent=4, ensure_ascii=True)
+            json.dump([row for row in reader], output_file, indent=4, ensure_ascii=True)
 
 
 
